@@ -10,7 +10,7 @@ import ItemsPane from './components/ItemsPane/ItemsPane';
 
 function App() {
   // States
-  const [activeMenu, setActiveMenu] = useState("CREATE BUILD");
+  // const [activeMenu, setActiveMenu] = useState("CREATE BUILD");
   const [myBuilds, setMyBuilds] = useState([]);
   const [currentHeroCategory, setHeroCategory] = useState('Strength');
   const [currentItemCategory, setItemCategory] = useState('Physical');
@@ -18,7 +18,7 @@ function App() {
   // const menus = ["MY BUILDS", "CREATE BUILD"];
   const heroCategories = ['Strength', 'Agility', 'Intelligence'];
   const itemCategories = ['Physical', 'Magical', 'Durable', 'Boots', 'Wards'];
-
+  const activeMenu = "CREATE BUILD";
   // const onSetActiveMenu = e => {
   //   setActiveMenu(e.target.innerText);
   //   console.log(myBuilds);
