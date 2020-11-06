@@ -1,0 +1,781 @@
+*, html, body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Roboto;
+}
+
+#mainContainer {
+  display: flex;
+  flex-direction: column;
+  // flex: 100%;
+  // max-width: 823px;
+  min-width: 568px;
+  // max-height: 414px;
+  min-height: 320px;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(180deg, rgba(24,36,61,1) 0%, rgba(42,71,113,1) 100%);
+}
+
+// utils
+.row {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+}
+
+// icons
+.goldIcon {
+  width: 11px;
+  height: 12px;
+  transform: matrix(0.85, -0.53, 0.53, 0.85, 0, 0);
+  background: transparent linear-gradient(168deg, #86723D 0%, #BFB153 40%, #E5DB62 75%, #F1E867 100%) 0% 0% no-repeat padding-box;
+  border-radius: 50%;
+  margin-right: 6px;
+}
+
+// navbar
+#navbar {
+  display: flex;
+  z-index: 1;
+  width: 100%;
+  min-height: 40px;
+  max-height: 40px;
+  background: transparent linear-gradient(180deg, #1F354B 0%, #28466C 100%) 0% 0% no-repeat padding-box;
+}
+
+.mainContent {
+  display: flex;
+  flex: 1;
+}
+
+.appTitleContainer {
+  display: flex; 
+  flex: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+
+  .appTitle {
+    font-size: 14px;
+    color: #fff;
+    font-weight: 500;
+  }
+
+  .appVersion {
+    color: #8a8a8a;
+    font-size: 8px;
+    margin-left: 5px;
+  }
+}
+
+// leftMenu
+#leftMenu {
+  flex: 20%;
+  max-width: 138px;
+  background: transparent linear-gradient(180deg, #1D324F 0%, #294672 100%) 0% 0% no-repeat padding-box;
+  box-shadow: 6px 3px 6px #00000033;
+  padding-top: 30px;
+}
+
+.menu {
+  display: flex;
+  align-self: flex-end;
+  justify-content: center;
+  color: #5C7FAD;
+  font-size: 12px;
+  width: 110px;
+  height: 58px;
+  line-height: 58px;
+
+  &:hover {
+    cursor: pointer;
+    color: #fff;
+  }
+  
+  &.active {
+    color: #fff;
+    line-height: 56px;
+    background: transparent linear-gradient(117deg, #1755D2 0%, var(--active-menu-border-color) 100%) 0% 0% no-repeat padding-box;
+    border: 1px solid var(--active-menu-border-color);
+    background: transparent linear-gradient(117deg, #1755D2 0%, #33C8FD 100%) 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    border: 1px solid #33C8FD;
+  }
+}
+
+// buildsPane
+#buildsPane {
+  display: flex;
+  flex: 55%;
+  z-index: 1;
+  padding: 20px 0;
+
+  .buildInfo {
+    display: flex;
+    justify-content: space-around;
+    height: auto;
+    padding: 10px;
+    margin: 0 20px 10px 20px;
+    border-radius: 50;
+    box-shadow: 
+      3px 3px 6px #00000029,
+      -3px -3px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+
+    .portrait {
+      display: flex;
+      flex: 20%;
+      height: 55px;
+      width: 55px;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        height: 55px;
+        width: 55px;
+        border: 1px solid #86785E;
+      }
+    }
+
+    .buildItems {
+      display: flex;
+      align-items: flex-start;
+      flex: 80%;
+
+      .row {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+
+        .col {
+          display: flex;
+          flex-direction: column;
+        }
+      }
+    }
+  }
+}
+
+// detailsPane
+#detailsPane {
+  flex: 30%;
+  z-index: 1;
+  background: transparent linear-gradient(180deg, #162137 0%, #233D5E 100%) 0% 0% no-repeat padding-box;
+  box-shadow: -6px 3px 7px #0000004D;
+  overflow-y: scroll;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.itemDetailsContainer, .buildDetailsContainer {
+  max-height: 75vh;
+}
+
+.detailedInfoContainer {
+  display: flex;
+  padding: 12px 12px 5px 12px;
+  height: auto;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.itemEffectsContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 0 12px;
+  height: 55vh;
+  overflow-y: scroll;
+  
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .row {
+    height: auto;
+  }
+}
+
+.portraitContainer {
+  flex: 30%;
+  margin-right: 10px;
+}
+
+.mainInfoContainer {
+  flex: 70%;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+
+  .itemName {
+    width: 100%;
+    color: #fff;
+    font-size: 10px;
+  }
+
+  .itemPrice {
+    color: #DDCB81;
+    font-size: 10px;
+  }
+}
+
+.itemPortraitBig {
+  width: 58px;
+  height: 58px;
+  
+  img {
+    width: 58px;
+    height: 58px;
+  }
+}
+
+.itemStats {
+  color: #3BFF06;
+  font-size: 10px;
+  flex-direction: column;
+  margin-bottom: 10px;
+  // height: auto;
+}
+
+.itemAttributes, .itemPassives, .itemEffects, .itemActiveAbility {
+  flex-direction: column;
+}
+
+.attributeName, .passiveName, .effectName {
+  margin-top: 3px;
+  color: #FBD332;
+  font-size: 10px;
+  letter-spacing: 0.02rem;
+}
+
+.attributeDesc, .passiveDesc, .effectDesc, .activeAblityDesc {
+  color: #9CACBC;
+  font-size: 10px;
+  letter-spacing: 0.02rem;
+}
+
+.activeAblityName {
+  margin-top: 10px;
+  color: crimson;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.activeAblityManaCost, .activeAblityCooldown, .activeAblityCastRange, .activeAblityEffectRadius {
+  color: #FBD332;
+  font-size: 10px;
+  
+  span {
+    color: #9CACBC;
+  }
+}
+
+.detailsButtonContainer {
+  display: flex;
+  padding: 10px;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.detailsBtn {
+  width: auto;
+  height: auto;
+  padding: 2px 10px;
+  background: transparent linear-gradient(180deg, #3B6595 0%, #56AAD4 100%) 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px #00000029;
+  color: #fff;
+  font-size: 10px;
+  line-height: 22px;
+  text-align: center;
+}
+
+// ItemsPane
+#itemsPane {
+  display: flex;
+  flex: 70%;
+  z-index: 1;
+  max-height: 414px;
+}
+
+.categories {
+  display: flex;
+  flex: 5%;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 28px;
+  background: transparent linear-gradient(180deg, #14223D 0%, #1B2741 100%) 0% 0% no-repeat padding-box;
+
+  .categoryContainer {
+    color: #6D8CB6;
+    background-color: none !important;
+    font-size: 11px;
+    text-align: center;
+    line-height: 28px;
+    width: 80px;
+    height: 28px;
+
+    &:hover {
+      cursor: pointer;
+      color: #fff;
+    }
+  
+    &.active {
+      color: #fff;
+      background: transparent linear-gradient(180deg, #00000005 0%, #1683FFD6 92%, #32C8FD 100%) 0% 0% no-repeat padding-box;
+    }
+  }
+}
+
+.itemsList {
+  flex: 85%;
+}
+
+.heroesList {
+  flex: 100%;
+}
+
+.heroesListContainer {
+  padding: 10px 0;
+  display: grid;
+  grid-template-columns: 64px 64px 64px 64px 64px 64px;
+  justify-content: space-evenly;
+  width: 100%;
+  height: inherit;
+  max-height: 80vh;
+  overflow-y: scroll;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .heroContainer {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    margin: 0 auto 10px auto;
+
+    .heroPortrait {
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        height: 55px;
+        width: 55px;
+        border: 1px solid #86785E;
+      }
+    }
+    
+    .heroName {
+      margin-top: 5px;
+      text-align: center;
+      font-size: 9px;
+      letter-spacing: 0.2px;
+      color: #9CACBC;
+    }
+  }
+}
+
+.itemsListContainer {
+  padding: 15px 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  height: inherit;
+  max-height: 54vh;
+  overflow-y: scroll;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.itemContainer {
+  display: flex;
+  margin: 3px 0;
+}
+
+.itemQuickInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: 5px;
+}
+
+.itemPortrait {
+  position: relative;
+  width: 38px;
+  height: 38px;
+  
+  img {
+    width: 38px;
+    height: 38px;
+    border: 1px solid #86785E;
+    cursor: pointer;
+  }
+
+  &.active {
+    box-shadow: 0px 0px 5px #16EFFF;
+
+    img {
+      border: 1px solid #BEE3FF;
+    }
+  }
+
+  .itemPlaceholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #86785E;
+    background-color: #000;
+
+    .addBtn {
+      background: transparent linear-gradient(180deg, #3B6595 0%, #56AAD4 100%) 0% 0% no-repeat padding-box;
+      color: #fff;
+      font-size: 9px;
+      padding: 2px 3px;
+      cursor: pointer;
+    }
+  }
+
+  .removeItem {
+    position: absolute;
+    display: flex;
+    right: -5px;
+    top: -6px;
+    background-color: crimson;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 11px;
+    line-height: 12px;
+    font-weight: bold;
+    width: 14px;
+    height: 14px;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    cursor: pointer;
+  }
+}
+
+.itemName {
+  width: 69px;
+  height: 21px;
+  text-align: left;
+  font-size: 10px;
+  color: #9CACBC;
+}
+
+.itemPrice { 
+  font-size: 9px;
+  color: #DDCB81;
+}
+// Item Build
+#itemBuild {
+  flex: 15%;
+  align-self: center;
+  max-width: 430px;
+  width: 90%;
+  height: 86px;
+  background: transparent linear-gradient(180deg, #233E5C 0%, #294A75 100%) 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px #00000029;
+}
+
+.heroPanel {
+  padding: 5px 10px;
+  width: 80px;
+}
+
+.selectHeroBtn {
+  height: 18px;
+  width: 56px;
+  color: #fff;
+  font-size: 11px;
+  text-align: center;
+  line-height: 18px;
+  background: transparent linear-gradient(180deg, #3B6595 0%, #56AAD4 100%) 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px #00000029;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.heroPortrait {
+  width: 55px;
+  height: 55px;
+  margin-top: 5px;
+  box-shadow: 0px 3px 6px #00000029;
+
+  img { 
+    height: 55px;
+    width: 55px;
+  }
+}
+
+.buildPanel {
+  width: 100%;
+}
+
+.upperRowBtns {
+  height: 28px;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+}
+
+.gearBindsBtn {
+  width: 82px;
+  height: 18px;
+  color: #fff;
+  font-size: 10px;
+  text-align: center;
+  line-height: 18px;
+  background: transparent linear-gradient(180deg, #3B6595 0%, #56AAD4 100%) 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px #00000029;
+}
+
+.editBtnContainer {
+  height: 28px;
+  flex: 80%;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.editBtn {
+  width: 42px;
+  height: 18px;
+  background: transparent linear-gradient(180deg, #3B6595 0%, #56AAD4 100%) 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px #00000029;
+  color: #fff;
+  font-size: 10px;
+  line-height: 18px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.itemBuildPanel {
+  padding: 5px 5px;
+}
+
+.itemBuild {
+  flex: 75%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.buildBtns {
+  flex: 25%;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.saveBtn {
+  width: 45px;
+  height: 18px;
+  background: transparent linear-gradient(180deg, #AFA274 0%, #8D7444 29%, #A59363E0 90%, #B0A171 100%) 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px #00000029;
+  color: #fff;
+  font-size: 9px;
+  line-height: 18px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.editBtn, .okBtn, .cancelBtn {
+  width: 45px;
+  height: 18px;
+  background: transparent linear-gradient(180deg, #3B6595 0%, #56AAD4 100%) 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px #00000029;
+  color: #fff;
+  font-size: 9px;
+  line-height: 18px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.buildDetailsContainer {
+  overflow-y: scroll;
+  height: 500%;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .totalCostContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+
+    .costHeader {
+      font-size: 10px;
+      color: #FBD332;
+      align-self: center;
+      margin-bottom: 10px;
+      padding: 0 10px;
+    }
+
+    .priceBreakdown {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      .breakdownHeader {
+        font-size: 10px;
+        color: #9CACBC;
+        margin-bottom: 10px;
+      }
+
+      .itemInfo {
+        display: flex;
+        flex: 50%;
+        align-items: center;
+        // justify-content: center;
+        margin-bottom: 5px;
+      }
+
+      .smallPortrait {
+        margin-right: 10px;
+        width: 24px;
+        height: 25px;
+      }
+    }
+
+    .priceContainer {
+      display: flex;
+      margin-top: 10px;
+
+      .totalText {
+        font-size: 10px;
+        color: #9CACBC;
+        margin-right: 6px;
+      }
+
+      .itemPrice {
+        font-size: 10px;
+      }
+    }
+  }
+
+  .statsContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 5px;
+    height: auto;
+  
+    .statsHeader {
+      font-size: 10px;
+      color: #FBD332;
+      align-self: center;
+    }
+    
+    .statsCol {
+      padding: 10px 5px 5px 5px;
+      flex: 50%;
+    }
+    .statName {
+      font-size: 9px;
+      color: #9CACBC;
+    }
+  
+    .defaultStatValue {
+      font-size: 9px;
+      color: #7f8e9c;
+      margin-left: 3px;
+    }
+
+    .statValue {
+      font-size: 9px;
+      color: #3BFF06;
+      margin-left: 3px;
+    }
+  }
+
+  .uniquePassivesContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 10px;
+    height: auto;
+
+    .passiveContainer {
+      .smallPortrait {
+        margin: 10px 0 5px 0;
+        width: 24px;
+        height: 25px;
+      }
+    }
+    .passivesHeader {
+      font-size: 10px;
+      color: #FBD332;
+      align-self: center;
+      margin-bottom: 5px;
+    }
+
+    .passiveSeparator {
+      color: #FBD332;
+      margin-right: 3px;
+    }
+
+    .passivesText {
+      font-size: 10px;
+      color: #9CACBC;
+      margin-bottom: 5px;
+    }
+  }
+
+  .activeAbilitiesContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 10px;
+    height: auto;
+
+    .itemActiveAbility { 
+      margin-bottom: 10px;
+    }
+    
+    .activesHeader {
+      font-size: 10px;
+      color: #FBD332;
+      align-self: center;
+      margin-bottom: 5px;
+    }
+
+    .smallPortrait {
+      margin-top: 5px;
+      width: 24px;
+      height: 25px;
+    }
+  }
+}
